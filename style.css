@@ -1,0 +1,593 @@
+/* add javascript for navbar, scrolltop and scrollreveal elements */
+
+
+
+/* google fonts - poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--textColor);
+    font-size: var(--normalFontSize);
+    line-height: 1.5;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--textColor);
+}
+
+
+/* Utilities */
+:root {
+    --textColor: rgb(40, 40, 40);
+    --titleColor: rgb(6, 156, 84);
+    --buttonBackgroundColor: rgba(6, 156, 84, 0.9);
+    --buttonbgHoverColor: rgba(6, 156, 84, 1);
+    --lightColor: rgb(255, 255, 255);
+    --lightdarkColor: rgb(80, 80, 80);
+
+    --smallFontSize: 0.9rem;
+    --normalFontSize: 1rem;
+    --heroTitleFontSize: 2rem;
+    --sectionTitleFontSize: 1rem;
+    --sectionSubTitleFontSize: 1.5rem;
+
+    --showcasePadding: 1rem;
+    --headerHeight: 3rem;
+
+    --z-fixed: 100;
+    --z-tooltip: 10;
+
+    --smallSpacing: 0.5rem;
+    --elementSpacing: 0.9rem;
+    --titleSpacing: 1.3rem;
+    --subsectionSpacing: 1.5rem;
+    --subsectionSpacing-bigger: 3rem;
+    --sectionSpacing: 5rem;
+
+
+
+}
+
+.hero-spacing>* {
+    margin-bottom: var(--titleSpacing);
+}
+
+.spacing>*+* {
+    margin-bottom: var(--elementSpacing);
+}
+
+.subsection-spacing {
+    margin-bottom: var(--subsectionSpacing);
+}
+
+.subsection-spacing-bigger {
+    margin-bottom: var(--subsectionSpacing-bigger);
+}
+
+.section-spacing {
+    margin-bottom: var(--sectionSpacing);
+}
+
+
+
+/* Showcase */
+.showcase {
+    padding: var(--showcasePadding);
+}
+
+
+/* Header */
+
+.logo {
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--lightdarkColor);
+}
+
+header {
+    /* position: fixed;
+    top: var(--showcasePadding); */
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    justify-content: space-between;
+    height: var(--headerHeight);
+
+}
+
+/* Navbar */
+.nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-bar {
+    font-size: 1.4rem;
+    color: var(--textColor);
+    cursor: pointer;
+}
+
+.nav-link {
+    display: block;
+    padding: .5rem 2rem;
+    transition: 0.4s;
+}
+
+.nav-link:hover {
+    color: var(--titleColor);
+}
+
+.active-link {
+    color: var(--titleColor);
+}
+
+.active-link:hover {
+    color: var(--titleColor);
+}
+
+.theme-change {
+    color: var(--textColor);
+}
+
+.theme-change:hover {
+    color: var(--textColor);
+}
+
+
+.nav-list {
+    position: fixed;
+    top: -100%;
+    top: calc(var(--showcasePadding) + var(--headerHeight));
+    left: 0;
+    width: 100%;
+    height: calc(50vh - (var(--showcasePadding) + var(--headerHeight)));
+    background: rgba(255, 255, 255, 1);
+    border-radius: .5rem;
+    box-shadow: 0 0.1rem rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: 0.4s;
+    z-index: var(--z-fixed);
+    display: none;
+}
+
+
+/* .show-menu {
+    top: calc(var(--showcasePadding) + var(--headerHeight));
+} */
+
+/* add some javascript to toggle to show nav menu */
+
+
+/* Scrolltop */
+.scrolltop {
+    position: fixed;
+    right: var(--showcasePadding);
+    bottom: -20%;
+    /* adjust while writing javascript */
+    z-index: var(--z-tooltip);
+    background: rgba(0, 172, 0, 0.5);
+    padding: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0.2rem;
+    visibility: hidden;
+}
+
+.scrolltop a {
+    display: flex;
+    align-items: center;
+}
+
+.show-scroll {
+    visibility: visible;
+    bottom: 1.5rem;
+}
+
+.bx-chevron-up {
+    font-size: 1.5rem;
+    color: var(--lightColor);
+}
+
+.scrolltop:hover {
+    background: rgba(0, 172, 0, 1);
+}
+
+
+/* Hero */
+.hero-data h1 {
+    color: var(--titleColor);
+    font-size: var(--heroTitleFontSize);
+}
+
+.hero-data h3 {
+    font-size: var(--sectionSubTitleFontSize);
+    line-height: 1.2;
+}
+
+.button {
+    display: inline-block;
+    background: var(--buttonBackgroundColor);
+    padding: 0.5rem 1.5rem;
+    border-radius: 1.5rem;
+    color: var(--lightColor);
+    transition: 0.4s;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    background: var(--buttonbgHoverColor);
+}
+
+.hero-container img {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
+
+
+/* about section */
+.about-container {
+    text-align: center;
+}
+
+.about-data h4 {
+    font-weight: 400;
+    text-transform: capitalize;
+    color: var(--titleColor);
+}
+
+.about-data h3 {
+    font-size: var(--sectionSubTitleFontSize);
+}
+
+.about-container img {
+    border-radius: 0.5rem;
+}
+
+
+/* services section */
+.services {
+    text-align: center;
+}
+
+.service-data {
+    padding: 1rem;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-img {
+    width: 64px;
+    height: 64px;
+
+}
+
+.services-title {
+    font-weight: 400;
+    text-transform: capitalize;
+    color: var(--titleColor);
+}
+
+.services-subtitle {
+    font-size: var(--sectionSubTitleFontSize);
+}
+
+
+/* menu section */
+.menu-title {
+    font-weight: 400;
+    color: var(--titleColor);
+    text-align: center;
+}
+
+.menu-subtitle {
+    font-size: var(--sectionSubTitleFontSize);
+    text-align: center;
+}
+
+.menu-item {
+    box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    position: relative;
+}
+
+.menu-item-img {
+    margin-bottom: var(--smallSpacing);
+    width: 90%;
+}
+
+.menu-item-description {
+    color: var(--lightdarkColor);
+    font-size: var(--smallFontSize);
+    margin-bottom: var(--smallSpacing);
+
+}
+
+.menu-item-price {
+    font-weight: 600;
+}
+
+.cart {
+    width: 2.5rem;
+    padding: 0.5rem;
+    display: inline-block;
+    background: var(--titleColor);
+    border-radius: 0.5rem 0 0.5rem 0;
+    fill: white;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* app section */
+.app-data {
+    text-align: center;
+}
+
+.app-title {
+    font-weight: 400;
+    color: var(--titleColor);
+}
+
+.app-subtitle {
+    font-size: var(--sectionSubTitleFontSize);
+}
+
+.app-store {
+    width: 35%;
+    margin: 0 var(--smallSpacing);
+    cursor: pointer;
+}
+
+.app-img {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
+
+
+/* contact section */
+.contact-data {
+    text-align: center;
+}
+
+.contact-button {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.contact-title {
+    font-weight: 400;
+    color: var(--titleColor);
+}
+
+.contact-subtitle {
+    font-size: var(--sectionSubTitleFontSize);
+}
+
+
+/* footer section */
+.footer-container {
+    max-width: 150px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-logo {
+    color: var(--titleColor);
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.footer-description {
+    font-size: var(--smallFontSize);
+    color: var(--lightdarkColor);
+}
+
+.footer-social i {
+    font-size: var(--sectionSubTitleFontSize);
+    margin-right: var(--elementSpacing);
+}
+
+.footer-subtitle {
+    text-transform: capitalize;
+    font-size: var(--sectionTitleFontSize);
+}
+
+.footer-link {
+    color: var(--lightdarkColor);
+    display: block;
+}
+
+.footer-link:hover {
+    color: var(--titleColor);
+}
+
+.footer-data ul a {
+    color: var(--lightdarkColor);
+    cursor: auto;
+}
+
+.copyright {
+    color: var(--lightdarkColor);
+    font-size: var(--smallFontSize);
+    display: flex;
+    justify-content: center;
+}
+
+
+/* media queries */
+@media screen and (min-width:600px) {
+    .hero-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(229px, 1fr));
+        column-gap: var(--subsectionSpacing);
+        align-items: center;
+        height: calc(100vh - (var(--headerHeight) + var(--showcasePadding)));
+
+    }
+
+    .about-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(229px, 1fr));
+        column-gap: var(--subsectionSpacing);
+        align-items: center;
+    }
+
+    .about-data {
+        order: 2;
+        text-align: left;
+    }
+
+    .about-container img {
+        height: 100%;
+    }
+
+    .services-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(229px, 1fr));
+        column-gap: var(--subsectionSpacing);
+        align-items: center;
+    }
+
+    .menu-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        column-gap: var(--subsectionSpacing);
+        align-items: center;
+    }
+
+    .app-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(229px, 1fr));
+        column-gap: var(--subsectionSpacing);
+        align-items: center;
+    }
+
+    .app-data {
+        order: 2;
+        text-align: left;
+    }
+
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1.75fr 1fr;
+        column-gap: var(--subsectionSpacing);
+        align-items: center;
+    }
+
+    .contact-data {
+        text-align: left;
+    }
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        column-gap: var(--subsectionSpacing);
+        align-items: center;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .nav-list {
+        display: flex;
+        height: fit-content;
+        box-shadow: none;
+        position: unset;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-link {
+        padding: 1rem;
+    }
+
+
+    .hero-data h1 {
+        font-size: 4rem;
+    }
+
+    .hero-data h3,
+    .about-data h3,
+    .services-subtitle,
+    .menu-subtitle,
+    .app-subtitle,
+    .contact-subtitle {
+        font-size: 2rem;
+    }
+
+    .service-heading {
+        font-size: 1.2rem;
+    }
+
+    .footer-container {
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+    }
+
+    .footer-logo {
+        font-size: 1.2rem;
+    }
+
+    .footer-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-container img {
+        width: 90%;
+    }
+
+    .hero-container,
+    .about-container,
+    .services-container,
+    .menu-container,
+    .app-container,
+    .contact-container {
+        column-gap: 3rem;
+
+    }
+
+    .showcase {
+        padding: 1rem 2rem;
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+
+}
